@@ -1,0 +1,142 @@
+html,
+body {
+  margin  : 0;
+  padding : 0;
+  width   : 100vw;
+  height  : 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+canvas {
+  display: block;
+}
+
+.container {
+  position        : absolute;
+  bottom          : 30px;
+  left            : 30px;
+  background-color: white;
+  padding         : 10px;
+  border-radius   : 15px;
+  display         : flex;
+  justify-content : center;
+  align-items     : center;
+  gap             : 15px;
+  opacity         : 0.4;
+}
+
+.container:hover {
+  opacity: 1;
+}
+
+.value-button {
+  display              : inline-block;
+  border               : 1px solid #ddd;
+  margin               : 0px;
+  width                : 40px;
+  height               : 20px;
+  text-align           : center;
+  vertical-align       : middle;
+  padding              : 11px 0;
+  background           : #eee;
+  -webkit-touch-callout: none;
+  -webkit-user-select  : none;
+  -khtml-user-select   : none;
+  -moz-user-select     : none;
+  -ms-user-select      : none;
+  user-select          : none;
+}
+
+.value-button:hover {
+  cursor: pointer;
+}
+
+form #decrease {
+  margin-right : -4px;
+  border-radius: 8px 0 0 8px;
+}
+
+form #increase {
+  margin-left  : -4px;
+  border-radius: 0 8px 8px 0;
+}
+
+/* form #input-wrap {
+  margin: 0px;
+  padding: 0px;
+} */
+
+input#number {
+  text-align   : center;
+  border       : none;
+  border-top   : 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  margin       : 0px;
+  width        : 40px;
+  height       : 40px;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin            : 0;
+}
+
+@keyframes rotating {
+  from {
+    -ms-transform    : rotate(0deg);
+    -moz-transform   : rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform     : rotate(0deg);
+    transform        : rotate(0deg);
+  }
+
+  to {
+    -ms-transform    : rotate(360deg);
+    -moz-transform   : rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform     : rotate(360deg);
+    transform        : rotate(360deg);
+  }
+}
+
+.refresh {
+  background   : #eee;
+  border       : 1px solid #ddd;
+  padding      : 8px;
+  border-radius: 8px;
+  width        : 44px;
+  height       : 44px;
+  margin       : 0 auto;
+  display      : block;
+
+  .icon {
+    fill: #323232;
+  }
+
+  &:hover {
+    background: #def4d7;
+    cursor    : pointer;
+  }
+
+  &:active {
+    .icon {
+      fill: #5ac938;
+    }
+  }
+
+  &.loading {
+    background: #def4d7;
+    cursor    : wait;
+
+    .icon {
+      fill             : #5ac938;
+      -webkit-animation: rotating 1.2s linear infinite;
+      -moz-animation   : rotating 1.2s linear infinite;
+      -ms-animation    : rotating 1.2s linear infinite;
+      -o-animation     : rotating 1.2s linear infinite;
+      animation        : rotating 1.2s linear infinite;
+    }
+  }
+}
