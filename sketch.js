@@ -6,7 +6,7 @@ let DIM = 10;
 
 function preload() {
   for (let i = 0; i <= 56; i++) {
-    tilesImages.push(loadImage(`large_tiles/${i}.jpg`));
+    tilesImages.push(loadImage(`small_tiles/${i}.jpg`));
   }
 }
 
