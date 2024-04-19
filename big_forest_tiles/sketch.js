@@ -92,6 +92,7 @@ function setup() {
   startOver();
 }
 
+//Reset the grid
 function startOver() {
   grid = [];
   //Create cell for each spot on the grid
@@ -102,41 +103,42 @@ function startOver() {
 
 function draw() {
   try {
-    //Pick cell with least entropy
-    let gridCopy = grid.slice();
-    gridCopy = gridCopy.filter((cell) => !cell.collapsed);
+    // Pick cell with the least entropy (fewest options)
+    let gridCopy = grid.slice(); // Create a copy of the grid
+    gridCopy = gridCopy.filter((cell) => !cell.collapsed); // Filter out collapsed cells
 
     if (gridCopy.length == 0) {
-      return;
+      return; // Exit draw function if all cells are collapsed
     }
 
     gridCopy.sort((a, b) => {
-      return a.options.length - b.options.length;
+      return a.options.length - b.options.length; // Sort cells by the number of available options
     });
 
-    let len = gridCopy[0].options.length;
-    //Sort every cell out that has more options then the smallest options len
+    let len = gridCopy[0].options.length; // Get the length of options in the cell with the least options
+    // Filter cells that have more options than the smallest options length
     gridCopy = gridCopy.filter((cell) => cell.options.length === len);
 
-    const cell = random(gridCopy);
-    cell.collapsed = true;
-    const pick = random(cell.options);
-    cell.options = [pick];
+    const cell = random(gridCopy); // Randomly select a cell from filtered cells
+    cell.collapsed = true; // Collapse the selected cell
+    const pick = random(cell.options); // Randomly pick an option for the collapsed cell
+    cell.options = [pick]; // Set the cell's options to the picked option
 
     if (pick === undefined) {
-      startOver();
+      startOver(); // Restart if no valid pick is found
       return;
     }
 
-    const w = height / DIM;
-    const h = height / DIM;
+    const w = height / DIM; // Calculate cell width
+    const h = height / DIM; // Calculate cell height
 
+    // Draw each cell in the grid
     for (let j = 0; j < DIM; j++) {
       for (let i = 0; i < DIM; i++) {
         let cell = grid[i + j * DIM];
         if (cell.collapsed) {
           let index = cell.options[0];
-          image(tiles[index].img, i * w, j * h, w, h);
+          image(tiles[index].img, i * w, j * h, w, h); // Draw the image for the collapsed cell
         } else {
           fill(0);
           stroke(255);
@@ -145,75 +147,34 @@ function draw() {
       }
     }
 
+    // Generate the next grid based on adjacency rules
     const nextGrid = [];
     for (let j = 0; j < DIM; j++) {
       for (let i = 0; i < DIM; i++) {
         let index = i + j * DIM;
         if (grid[index].collapsed) {
-          nextGrid[index] = grid[index];
+          nextGrid[index] = grid[index]; // Copy collapsed cells to the next grid
         } else {
-          let options = new Array(tiles.length).fill(0).map((_, i) => i);
+          let options = new Array(tiles.length).fill(0).map((_, i) => i); // Create an array of all options
 
-          //Look up
+          // Look up, right, down, and left to determine valid options based on adjacency rules
           if (j > 0) {
             let up = grid[i + (j - 1) * DIM];
             let validOptions = [];
-
             for (const option of up.options) {
               let valid = tiles[option].down;
               validOptions = validOptions.concat(valid);
             }
-
-            checkValid(options, validOptions);
+            checkValid(options, validOptions); // Check validity of options
           }
-
-          //Look right
-          if (i < DIM - 1) {
-            let right = grid[i + 1 + j * DIM];
-            let validOptions = [];
-
-            for (const option of right.options) {
-              let valid = tiles[option].left;
-              validOptions = validOptions.concat(valid);
-            }
-
-            checkValid(options, validOptions);
-          }
-
-          //Look down
-          if (j < DIM - 1) {
-            let down = grid[i + (j + 1) * DIM];
-            let validOptions = [];
-
-            for (const option of down.options) {
-              let valid = tiles[option].up;
-              validOptions = validOptions.concat(valid);
-            }
-
-            checkValid(options, validOptions);
-          }
-
-          //Look left
-          if (i > 0) {
-            let left = grid[i - 1 + j * DIM];
-            let validOptions = [];
-
-            for (const option of left.options) {
-              let valid = tiles[option].right;
-              validOptions = validOptions.concat(valid);
-            }
-
-            checkValid(options, validOptions);
-          }
-
-          nextGrid[index] = new Cell(options);
+          nextGrid[index] = new Cell(options); // Create a new cell in the next grid with valid options
         }
       }
     }
 
-    grid = nextGrid;
+    grid = nextGrid; // Update the grid with the next grid
   } catch (error) {
-    console.log("draw failed");
+    console.error("draw failed");
   }
 }
 
