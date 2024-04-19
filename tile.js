@@ -1,7 +1,8 @@
 class Tile {
-  constructor(img, edges) {
+  constructor(img, edges, index) {
     this.img = img;
     this.edges = edges;
+    this.index = index;
 
     this.up = [];
     this.right = [];
@@ -13,8 +14,8 @@ class Tile {
     for (let i = 0; i < tiles.length; i++) {
       let tile = tiles[i];
 
-      // Tile 5 can't match itself
-      if (tile.index == 5 && this.index == 5) continue;
+      // Island tiles should not be adjacent to each othe
+      if (tile.index == 55 && this.index == 55) continue;
 
       // UP
       if (tile.edges[2] === this.edges[0]) {
