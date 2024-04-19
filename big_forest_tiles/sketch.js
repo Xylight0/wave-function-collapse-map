@@ -232,6 +232,7 @@ function increaseValue() {
 
 function decreaseValue() {
   var value = document.getElementById("number").value;
+  if (value == 1) return;
   document.getElementById("number").value = --value;
 }
 
