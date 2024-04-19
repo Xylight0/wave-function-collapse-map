@@ -14,74 +14,74 @@ function setup() {
   createCanvas(windowHeight, windowHeight);
 
   //Load and create tiles
-  tiles[0] = new Tile(tilesImages[0], ["A", "A", "A", "A"]);
-  tiles[1] = new Tile(tilesImages[1], ["A", "A", "A", "A"]);
-  tiles[2] = new Tile(tilesImages[2], ["A", "A", "A", "A"]);
-  tiles[3] = new Tile(tilesImages[3], ["A", "A", "A", "A"]);
-  tiles[4] = new Tile(tilesImages[4], ["A", "A", "A", "A"]);
+  tiles[0] = new Tile(tilesImages[0], ["A", "A", "A", "A"], 0);
+  tiles[1] = new Tile(tilesImages[1], ["A", "A", "A", "A"], 1);
+  tiles[2] = new Tile(tilesImages[2], ["A", "A", "A", "A"], 2);
+  tiles[3] = new Tile(tilesImages[3], ["A", "A", "A", "A"], 3);
+  tiles[4] = new Tile(tilesImages[4], ["A", "A", "A", "A"], 4);
 
-  tiles[5] = new Tile(tilesImages[5], ["A", "B", "A", "B"]);
-  tiles[6] = new Tile(tilesImages[6], ["A", "B", "A", "B"]);
-  tiles[7] = new Tile(tilesImages[7], ["A", "B", "A", "B"]);
+  tiles[5] = new Tile(tilesImages[5], ["A", "B", "A", "B"], 5);
+  tiles[6] = new Tile(tilesImages[6], ["A", "B", "A", "B"], 6);
+  tiles[7] = new Tile(tilesImages[7], ["A", "B", "A", "B"], 7);
 
-  tiles[8] = new Tile(tilesImages[8], ["A", "C", "A", "C"]);
-  tiles[9] = new Tile(tilesImages[9], ["A", "C", "A", "C"]);
-  tiles[10] = new Tile(tilesImages[10], ["A", "C", "A", "C"]);
-  tiles[11] = new Tile(tilesImages[11], ["A", "C", "A", "C"]);
-  tiles[12] = new Tile(tilesImages[12], ["A", "C", "A", "C"]);
-  tiles[13] = new Tile(tilesImages[13], ["A", "C", "A", "C"]);
+  tiles[8] = new Tile(tilesImages[8], ["A", "C", "A", "C"], 8);
+  tiles[9] = new Tile(tilesImages[9], ["A", "C", "A", "C"], 9);
+  tiles[10] = new Tile(tilesImages[10], ["A", "C", "A", "C"], 10);
+  tiles[11] = new Tile(tilesImages[11], ["A", "C", "A", "C"], 11);
+  tiles[12] = new Tile(tilesImages[12], ["A", "C", "A", "C"], 12);
+  tiles[13] = new Tile(tilesImages[13], ["A", "C", "A", "C"], 13);
 
-  tiles[14] = new Tile(tilesImages[14], ["A", "B", "B", "A"]);
-  tiles[15] = new Tile(tilesImages[15], ["A", "A", "B", "B"]);
-  tiles[16] = new Tile(tilesImages[16], ["A", "A", "B", "B"]);
-  tiles[17] = new Tile(tilesImages[17], ["A", "B", "B", "B"]);
+  tiles[14] = new Tile(tilesImages[14], ["A", "B", "B", "A"], 14);
+  tiles[15] = new Tile(tilesImages[15], ["A", "A", "B", "B"], 15);
+  tiles[16] = new Tile(tilesImages[16], ["A", "A", "B", "B"], 16);
+  tiles[17] = new Tile(tilesImages[17], ["A", "B", "B", "B"], 17);
 
-  tiles[18] = new Tile(tilesImages[18], ["A", "C", "C", "A"]);
-  tiles[19] = new Tile(tilesImages[19], ["A", "A", "C", "C"]);
+  tiles[18] = new Tile(tilesImages[18], ["A", "C", "C", "A"], 18);
+  tiles[19] = new Tile(tilesImages[19], ["A", "A", "C", "C"], 19);
 
-  tiles[20] = new Tile(tilesImages[20], ["B", "B", "A", "A"]);
-  tiles[21] = new Tile(tilesImages[21], ["B", "B", "A", "A"]);
-  tiles[22] = new Tile(tilesImages[22], ["B", "A", "A", "B"]);
-  tiles[23] = new Tile(tilesImages[23], ["B", "B", "A", "B"]);
-  tiles[24] = new Tile(tilesImages[24], ["B", "A", "B", "A"]);
-  tiles[25] = new Tile(tilesImages[25], ["B", "A", "B", "A"]);
-  tiles[26] = new Tile(tilesImages[26], ["B", "A", "B", "A"]);
-  tiles[27] = new Tile(tilesImages[27], ["B", "B", "B", "A"]);
-  tiles[28] = new Tile(tilesImages[28], ["B", "A", "B", "B"]);
+  tiles[20] = new Tile(tilesImages[20], ["B", "B", "A", "A"], 20);
+  tiles[21] = new Tile(tilesImages[21], ["B", "B", "A", "A"], 21);
+  tiles[22] = new Tile(tilesImages[22], ["B", "A", "A", "B"], 22);
+  tiles[23] = new Tile(tilesImages[23], ["B", "B", "A", "B"], 23);
+  tiles[24] = new Tile(tilesImages[24], ["B", "A", "B", "A"], 24);
+  tiles[25] = new Tile(tilesImages[25], ["B", "A", "B", "A"], 25);
+  tiles[26] = new Tile(tilesImages[26], ["B", "A", "B", "A"], 26);
+  tiles[27] = new Tile(tilesImages[27], ["B", "B", "B", "A"], 27);
+  tiles[28] = new Tile(tilesImages[28], ["B", "A", "B", "B"], 28);
 
-  tiles[29] = new Tile(tilesImages[29], ["B", "C", "B", "C"]);
-  tiles[30] = new Tile(tilesImages[30], ["B", "C", "B", "C"]);
-  tiles[31] = new Tile(tilesImages[31], ["B", "C", "C", "B"]);
-  tiles[32] = new Tile(tilesImages[32], ["C", "C", "A", "A"]);
-  tiles[33] = new Tile(tilesImages[33], ["C", "C", "A", "A"]);
+  tiles[29] = new Tile(tilesImages[29], ["B", "C", "B", "C"], 29);
+  tiles[30] = new Tile(tilesImages[30], ["B", "C", "B", "C"], 30);
+  tiles[31] = new Tile(tilesImages[31], ["B", "C", "C", "B"], 31);
+  tiles[32] = new Tile(tilesImages[32], ["C", "C", "A", "A"], 32);
+  tiles[33] = new Tile(tilesImages[33], ["C", "C", "A", "A"], 33);
 
-  tiles[34] = new Tile(tilesImages[34], ["C", "A", "A", "C"]);
-  tiles[35] = new Tile(tilesImages[35], ["C", "A", "A", "C"]);
-  tiles[36] = new Tile(tilesImages[36], ["C", "A", "C", "A"]);
-  tiles[37] = new Tile(tilesImages[37], ["C", "A", "C", "A"]);
-  tiles[38] = new Tile(tilesImages[38], ["C", "C", "C", "A"]);
-  tiles[39] = new Tile(tilesImages[39], ["C", "B", "C", "B"]);
-  tiles[40] = new Tile(tilesImages[40], ["C", "A", "C", "C"]);
+  tiles[34] = new Tile(tilesImages[34], ["C", "A", "A", "C"], 34);
+  tiles[35] = new Tile(tilesImages[35], ["C", "A", "A", "C"], 35);
+  tiles[36] = new Tile(tilesImages[36], ["C", "A", "C", "A"], 36);
+  tiles[37] = new Tile(tilesImages[37], ["C", "A", "C", "A"], 37);
+  tiles[38] = new Tile(tilesImages[38], ["C", "C", "C", "A"], 38);
+  tiles[39] = new Tile(tilesImages[39], ["C", "B", "C", "B"], 39);
+  tiles[40] = new Tile(tilesImages[40], ["C", "A", "C", "C"], 40);
 
-  tiles[41] = new Tile(tilesImages[41], ["C", "DT", "DL", "A"]);
-  tiles[42] = new Tile(tilesImages[42], ["A", "DT", "DL", "A"]);
-  tiles[43] = new Tile(tilesImages[43], ["A", "A", "DR", "DT"]);
-  tiles[44] = new Tile(tilesImages[44], ["A", "DT", "E", "DT"]);
-  tiles[45] = new Tile(tilesImages[45], ["C", "A", "DR", "DT"]);
-  tiles[46] = new Tile(tilesImages[46], ["DL", "DB", "A", "A"]);
+  tiles[41] = new Tile(tilesImages[41], ["C", "DT", "DL", "A"], 41);
+  tiles[42] = new Tile(tilesImages[42], ["A", "DT", "DL", "A"], 42);
+  tiles[43] = new Tile(tilesImages[43], ["A", "A", "DR", "DT"], 43);
+  tiles[44] = new Tile(tilesImages[44], ["A", "DT", "E", "DT"], 44);
+  tiles[45] = new Tile(tilesImages[45], ["C", "A", "DR", "DT"], 45);
+  tiles[46] = new Tile(tilesImages[46], ["DL", "DB", "A", "A"], 46);
 
-  tiles[47] = new Tile(tilesImages[47], ["DL", "DB", "C", "A"]);
-  tiles[48] = new Tile(tilesImages[48], ["DL", "E", "DL", "A"]);
-  tiles[49] = new Tile(tilesImages[49], ["DR", "A", "A", "DB"]);
-  tiles[50] = new Tile(tilesImages[50], ["DR", "A", "A", "DB"]);
+  tiles[47] = new Tile(tilesImages[47], ["DL", "DB", "C", "A"], 47);
+  tiles[48] = new Tile(tilesImages[48], ["DL", "E", "DL", "A"], 48);
+  tiles[49] = new Tile(tilesImages[49], ["DR", "A", "A", "DB"], 49);
+  tiles[50] = new Tile(tilesImages[50], ["DR", "A", "A", "DB"], 50);
 
-  tiles[51] = new Tile(tilesImages[51], ["DR", "A", "C", "DB"]);
-  tiles[52] = new Tile(tilesImages[52], ["DR", "A", "DR", "E"]);
-  tiles[53] = new Tile(tilesImages[53], ["E", "DB", "A", "DB"]);
-  tiles[54] = new Tile(tilesImages[54], ["E", "DB", "DR", "E"]);
+  tiles[51] = new Tile(tilesImages[51], ["DR", "A", "C", "DB"], 51);
+  tiles[52] = new Tile(tilesImages[52], ["DR", "A", "DR", "E"], 52);
+  tiles[53] = new Tile(tilesImages[53], ["E", "DB", "A", "DB"], 53);
+  tiles[54] = new Tile(tilesImages[54], ["E", "DB", "DR", "E"], 54);
 
-  tiles[55] = new Tile(tilesImages[55], ["E", "E", "E", "E"]);
-  tiles[56] = new Tile(tilesImages[56], ["A", "B", "B", "A"]);
+  tiles[55] = new Tile(tilesImages[55], ["E", "E", "E", "E"], 55);
+  tiles[56] = new Tile(tilesImages[56], ["A", "B", "B", "A"], 56);
 
   //Generate the adjancency rules based on edges
   for (let i = 0; i < tiles.length; i++) {
